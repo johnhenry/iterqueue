@@ -1,5 +1,7 @@
 # IterQueue
 
+<img src="./logo.webp" style="width:256px; height:256px">
+
 IterQueue is a asynchronous queue that can be read as an asynchronous iterator.
 This class supports enqueueing items, buffering when not being read, and provides a method to end the queue.
 
