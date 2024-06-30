@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object form</title>
+    <style>
+      input[type="image"] {
+        width: 64px;
+        height: 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="output"></ul>
+    <script type="module">
+      import IterQueue from "./index.mjs";
+      const output = document.getElementById("output");
+      const queue = new IterQueue();
+      // Enqueue items
+      const k = 3;
+      setTimeout(() => queue.end(), 1000 * k);
+      for (let i = 0; i < k; i++) {
+        setTimeout(() => queue.enqueue(i), i * 1000);
+      }
+      // Consume items
+      for await (const item of queue) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        output.appendChild(li);
+      }
+      alert("Queue has ended.");
+    </script>
+  </body>
+</html>
